@@ -7,7 +7,7 @@ public class CombatRules {
 
         if (newHp > maxHp)
             return maxHp;
-
+        
         return newHp;
     }
 
