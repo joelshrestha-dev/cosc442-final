@@ -74,10 +74,17 @@ public class CombatRulesTest {
     })
     void testCalculateNewHpPosotiveChanges(int amount) {
         // Test positive changes to HP
-        assertTrue(CombatRules.calculateNewHp(FungusCurrentHp, FungusMaxHp, amount) == ((FungusCurrentHp + amount) <= FungusMaxHp ? FungusCurrentHp + amount : FungusMaxHp));
-        assertTrue(CombatRules.calculateNewHp(BatCurrentHp,BatMaxHp, amount) == ((BatCurrentHp + amount) <= BatMaxHp? BatCurrentHp + amount : BatMaxHp));
-        assertTrue(CombatRules.calculateNewHp(ZombieCurrentHp, ZombieMaxHp, amount) == ((ZombieCurrentHp + amount) <= ZombieMaxHp? ZombieCurrentHp + amount : ZombieMaxHp));
-        assertTrue(CombatRules.calculateNewHp(GoblinCurrentHp, GoblinMaxHp, amount) == ((GoblinCurrentHp + amount) <= GoblinMaxHp? GoblinCurrentHp + amount : GoblinMaxHp));
+        int FungusAmount = CombatRules.calculateNewHp(FungusCurrentHp, FungusMaxHp, amount);
+        assertTrue(FungusAmount == ((FungusCurrentHp + amount) <= FungusMaxHp ? FungusCurrentHp + amount : FungusMaxHp));
+        
+        int BatAmount = CombatRules.calculateNewHp(BatCurrentHp, BatMaxHp, amount);
+        assertTrue(BatAmount == ((BatCurrentHp + amount) <= BatMaxHp? BatCurrentHp + amount : BatMaxHp));
+        
+        int ZombieAmount = CombatRules.calculateNewHp(ZombieCurrentHp, ZombieMaxHp, amount);
+        assertTrue(ZombieAmount == ((ZombieCurrentHp + amount) <= ZombieMaxHp? ZombieCurrentHp + amount : ZombieMaxHp));
+        
+        int GoblinAmount = CombatRules.calculateNewHp(GoblinCurrentHp, GoblinMaxHp, amount);
+        assertTrue(GoblinAmount == ((GoblinCurrentHp + amount) <= GoblinMaxHp? GoblinCurrentHp + amount : GoblinMaxHp));
     }
 
     @ParameterizedTest
